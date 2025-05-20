@@ -1,0 +1,32 @@
+﻿@model NgoTanTai_Tuan3.Models.Category
+
+@{
+    ViewData["Title"] = "Update Category";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center text-primary">Update Category</h2>
+
+    <div class="card shadow-sm p-4">
+        <form asp-action="Update" method="post">
+            <input type="hidden" asp-for="Id" />
+
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label fw-bold"></label>
+                <input asp-for="Name" class="form-control border-primary" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="text-center mt-3">
+                <button type="submit" class="btn btn-success px-4">Update</button>
+                <a asp-action="Index" class="btn btn-outline-secondary px-4 ms-2">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
